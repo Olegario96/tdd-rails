@@ -1,7 +1,8 @@
 require 'calculator'
 
 describe Calculator do
-  # subject(:calc) { described_class.new() }
+  # subject(:calc) { described_class.new(params) }
+  # Quando houver mais de um describe, prevalece o mais interno
 
   context '#sum' do
     it 'with positive numbers' do
