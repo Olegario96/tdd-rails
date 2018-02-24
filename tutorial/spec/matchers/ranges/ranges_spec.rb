@@ -1,9 +1,8 @@
 describe (1..5), 'Ranges' do
   it '#cover' do
-    expect(subject).to cover(2, 5)
+    # is_expected == expect(subject)
+    is_expected.to cover(2, 5)
   end
 
-  it '#cover negative' do
-    expect(subject).not_to cover(0)
-  end
+  it { is_expected.not_to cover(0) }
 end
