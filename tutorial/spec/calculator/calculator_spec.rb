@@ -20,4 +20,10 @@ describe Calculator do
       expect(result).to eql(-12)
     end
   end
+
+  context '#div' do
+    it 'divide by 0' do
+      expect{subject.div(3,0)}.to raise_error(ZeroDivisionError)
+    end
+  end
 end
