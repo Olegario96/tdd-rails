@@ -1,11 +1,18 @@
 require 'car'
 
 describe Car do
-  before(:each) do
-    @car = Car.new
-  end
+  # before(:each) do
+  #   @car = Car.new
+  # end
 
-  after(:each) do
+  # after(:each) do
+  #   @car.model = 'No model'
+  #   puts "#{@car.inspect}"
+  # end
+
+  around(:each) do |test|
+    @car = Car.new
+    test.run
     @car.model = 'No model'
     puts "#{@car.inspect}"
   end
