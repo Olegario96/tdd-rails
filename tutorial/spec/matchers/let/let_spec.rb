@@ -11,4 +11,9 @@ describe 'let' do
   it 'value not cached between tests' do
     expect(count).to eq(2)
   end
+
+  # it 'memorize value/aggregate failures', :aggregate_failures do
+  #   expect(count).to eq(4)
+  #   expect(count).to eq(5)
+  # end
 end

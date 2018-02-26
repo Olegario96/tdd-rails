@@ -16,6 +16,10 @@ require_relative '../modules/helper'
 #
 # See http://rubydoc.info/gems/rspec-core/RSpec/Core/Configuration
 RSpec.configure do |config|
+  config.define_derived_metadata do |meta|
+    meta[:aggregate_failures] = true
+  end
+
   # config.before(:suite) do
   #   puts '>>>>>>>Before all switch of tests'
   # end
