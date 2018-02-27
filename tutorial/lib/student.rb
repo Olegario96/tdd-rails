@@ -5,4 +5,12 @@ class Student
     # TODO
     # true/false
   end
+
+  def foo(arg)
+    # TODO
+  end
+
+  def bar
+    # TODo
+  end
 end
