@@ -1,5 +1,5 @@
 describe 'Test double' do
-  it '--' do
+  it 'example for double' do
     car = double('Car')
     allow(car).to receive_messages(model: 'Celta', color: 'black')
     # allow(car).to receive(:model).and_return('Celta')
