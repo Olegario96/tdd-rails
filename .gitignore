@@ -1,2 +1,7 @@
 .vagrant/*
 Vagrantfile
+test_app/db/*.sqlite3
+test_app/db/schema.rb
+test_app/log/test.log
+test_app/log/development.log
+
