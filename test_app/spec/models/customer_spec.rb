@@ -16,5 +16,11 @@ RSpec.describe Customer, type: :model do
     expect(customer.vip).to be_falsy
   end
 
+  it 'attributes_for' do
+    attrs = attributes_for(:customer_not_vip)
+    customer = Customer.create(attrs)
+    expect(customer.full_name).to start_with('Sr. ')
+  end
+
   it { expect{ create(:customer) }.to change { Customer.all.size }.by(1) }
 end
