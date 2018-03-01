@@ -9,6 +9,7 @@ RSpec.describe Order, type: :model do
 
   it 'Create list with 3 orders' do
     orders = create_list(:order, 3, description: "Test")
+    # orders = create_pair(:order) -> list with sie == 2
     expect(orders.size).to eq(3)
   end
 
