@@ -46,6 +46,8 @@ group :development, :test do
   gem 'faker'
   # Makes http fun again!
   gem 'httparty'
+  # Library for stubbing and setting expectations on HTTP requests in Ruby.
+  gem 'webmock'
 end
 
 group :development do
