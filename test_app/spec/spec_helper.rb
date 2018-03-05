@@ -1,4 +1,5 @@
 require 'webmock/rspec'
+require 'active_support/testing/time_helpers'
 
 VCR.configure do |config|
   config.cassette_library_dir = 'spec/fixtures/vcr_cassettes'
@@ -27,7 +28,8 @@ RSpec.configure do |config|
     FactoryBot.lint
   end
 
-
+  # Time Helper
+  config.include ActiveSupport::Testing::TimeHelpers
 
   # rspec-expectations config goes here. You can use an alternate
   # assertion/expectation library such as wrong or the stdlib/minitest
