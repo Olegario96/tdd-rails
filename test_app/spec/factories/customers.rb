@@ -7,7 +7,8 @@ FactoryBot.define do
 
     name { Faker::Name.name }
     sequence(:email, 33) { |n| "my_email_#{n}@email.com" }
-    #email { Faker::Internet.email }
+    address { Faker::Address.street_address }
+    # email { Faker::Internet.email }
 
     trait :male do
       gender 'M'
