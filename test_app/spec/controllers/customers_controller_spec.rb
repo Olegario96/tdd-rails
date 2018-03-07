@@ -41,12 +41,22 @@ RSpec.describe CustomersController, type: :controller do
       expect(flash[:notice]).to match(/successfully created/)
     end
 
+    it { is_expected.to route(:get, '/customers').to(action: :index) }
+
     it 'with valid attributes' do
       customer_params = attributes_for(:customer)
       sign_in(@member)
       expect{
         post :create, params: { customer: customer_params }
       }.to change(Customer, :count).by(1)
+    end
+
+    it 'with invalid attributes' do
+      customer_params = attributes_for(:customer, address: nil)
+      sign_in(@member)
+      expect{
+        post :create, params: { customer: customer_params }
+      }.to change(Customer, :count).by(0)
     end
 
     it 'respond as http 200' do
