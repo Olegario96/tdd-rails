@@ -17,4 +17,10 @@ RSpec.feature "Customers", type: :feature, js: true do
     click_button('Create Customer')
     expect(page).to have_content('Customer was successfully created.')
   end
+
+  it 'ajax' do
+    visit(customers_path)
+    click_link('Add message')
+    expect(page).to have_content('Yes!')
+  end
 end
