@@ -52,6 +52,8 @@ group :development, :test do
   gem 'webmock'
   # Record your test suite's HTTP interactions and replay them during future test runs for fast, deterministic, accurate tests.
   gem 'vcr'
+  # Brings back `assigns` and `assert_template` to your Rails tests
+  gem 'rails-controller-testing'
 end
 
 group :development do

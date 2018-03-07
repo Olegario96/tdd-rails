@@ -30,6 +30,9 @@ RSpec.configure do |config|
   # FactoryBot
   config.include FactoryBot::Syntax::Methods
 
+  # Devise
+  config.include Devise::Test::ControllerHelpers, :type => :controller
+
   Shoulda::Matchers.configure do |shoulda_config|
     shoulda_config.integrate do |with|
       # Choose a test framework:
