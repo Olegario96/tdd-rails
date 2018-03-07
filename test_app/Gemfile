@@ -54,6 +54,10 @@ group :development, :test do
   gem 'vcr'
   # Brings back `assigns` and `assert_template` to your Rails tests
   gem 'rails-controller-testing'
+  # Driver for chromium
+  gem 'selenium-webdriver'
+  # Only headless
+  gem 'chromedriver-helper'
 end
 
 group :development do
