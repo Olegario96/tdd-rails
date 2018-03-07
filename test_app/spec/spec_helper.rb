@@ -1,5 +1,6 @@
-require 'webmock/rspec'
 require 'active_support/testing/time_helpers'
+require 'rspec/json_expectations'
+require 'webmock/rspec'
 
 VCR.configure do |config|
   config.cassette_library_dir = 'spec/fixtures/vcr_cassettes'
