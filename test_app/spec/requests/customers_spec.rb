@@ -10,15 +10,17 @@ RSpec.describe "Customers", type: :request do
     it "index - json" do
       get '/customers.json'
       expect(response.body).to include_json([
-        email: 'my_email_33@email.com'
+        name: (be_kind_of String),
+        email: (be_kind_of String)
       ])
     end
 
     it "show - json" do
       get '/customers/1.json'
       expect(response.body).to include_json(
-        id: 1,
-        email: 'my_email_33@email.com'
+        id: /\d/,
+        name: (be_kind_of String),
+        email: (be_kind_of String)
       )
     end
   end
