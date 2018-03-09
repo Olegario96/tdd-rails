@@ -36,5 +36,18 @@ RSpec.describe 'Customers', type: :request do
         email: customer_params.fetch(:email)
       )
     end
+
+    it 'update - JSON' do
+      member = create(:member)
+      login_as(member, scope: :member)
+      headers = {'Accept' => 'application/json'}
+      customer = Customer.all.first
+      customer.name += ' Atualizado'
+      patch "/customers/#{customer.id}.json", params: { customer: customer.attributes }, headers: headers
+      expect(response.body).to include_json(
+        name: customer.name,
+        email: customer.email
+      )
+    end
   end
 end
