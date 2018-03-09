@@ -1,4 +1,5 @@
 require 'active_support/testing/time_helpers'
+require 'json_matchers/rspec'
 require 'rspec/json_expectations'
 require 'webmock/rspec'
 

@@ -75,6 +75,8 @@ end
 group :test do
   # Collection of testing matchers extracted from Shoulda http://matchers.shoulda.io
   gem 'shoulda-matchers', '~> 3.1'
+  # Validate your JSON APIs
+  gem 'json_matchers'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
