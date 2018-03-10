@@ -74,4 +74,20 @@ RSpec.feature "Customers", type: :feature do
     visit(customers_path)
     expect(page).to have_content(customer1.name).and have_content(customer2.name)
   end
+
+  scenario 'Update customer' do
+    customer = Customer.create!(
+      name: Faker::Name.name,
+      email: Faker::Internet.email,
+      phone: Faker::PhoneNumber.phone_number,
+      smoker: ['Y', 'N'].sample,
+      avatar: "#{Rails.root}/spec/fixtures/avatar.jpg"
+    )
+
+    new_name = Faker::Name.name
+    visit(edit_customer_path(customer.id))
+    fill_in('customer_name', with: new_name)
+    click_on('Update')
+    expect(page).to have_content('Customer updated!').and have_content(new_name)
+  end
 end
