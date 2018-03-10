@@ -41,4 +41,16 @@ RSpec.feature "Customers", type: :feature do
     click_on('Create')
     expect(page).to have_content("can't be blank")
   end
+
+  scenario 'Show a customer' do
+    customer = Customer.create!(
+      name: Faker::Name.name,
+      email: Faker::Internet.email,
+      phone: Faker::PhoneNumber.phone_number,
+      smoker: ['Y', 'N'].sample,
+      avatar: "#{Rails.root}/spec/fixtures/avatar.jpg"
+    )
+    visit(customer_path(customer.id))
+    expect(page).to have_content(customer.name)
+  end
 end
