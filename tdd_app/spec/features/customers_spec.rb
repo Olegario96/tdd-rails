@@ -35,4 +35,10 @@ RSpec.feature "Customers", type: :feature do
 
     expect(page).to have_content('Customer created!')
   end
+
+  scenario 'Reject a invalid customer' do
+    visit(new_customer_path)
+    click_on('Create')
+    expect(page).to have_content("can't be blank")
+  end
 end
