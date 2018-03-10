@@ -6,8 +6,8 @@ RSpec.feature "Welcome", type: :feature do
     expect(page).to have_content('Welcome!')
   end
 
-  scenario 'click link to create new client' do
+  scenario 'Click link to list customers' do
     visit(root_path)
-    expect(find('ul li')).to have_link('Create client')
+    expect(find('ul li')).to have_link('List customer')
   end
 end
