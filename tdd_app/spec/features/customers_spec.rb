@@ -27,9 +27,9 @@ RSpec.feature "Customers", type: :feature do
   scenario 'Create a valid customer' do
     visit(new_customer_path)
     fill_in('customer_name', with: Faker::Name.name)
-    fill_in('Email', with: Faker::Internet.email)
-    fill_in('Phone', with: Faker::PhoneNumber.phone_number)
-    attach_file('Profile photo', "#{Rails.root}/spec/fixtures/avatar.png")
+    fill_in('customer_email', with: Faker::Internet.email)
+    fill_in('customer_phone', with: Faker::PhoneNumber.phone_number)
+    attach_file('customer_avatar', "#{Rails.root}/spec/fixtures/avatar.jpg")
     choose(option: ['Y', 'N'].sample)
     click_on('Create')
 
