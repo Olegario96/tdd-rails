@@ -43,46 +43,22 @@ RSpec.feature "Customers", type: :feature do
   end
 
   scenario 'Show a customer' do
-    customer = Customer.create!(
-      name: Faker::Name.name,
-      email: Faker::Internet.email,
-      phone: Faker::PhoneNumber.phone_number,
-      smoker: ['Y', 'N'].sample,
-      avatar: "#{Rails.root}/spec/fixtures/avatar.jpg"
-    )
+    customer = create(:customer)
     visit(customer_path(customer.id))
     expect(page).to have_content(customer.name)
   end
 
   scenario 'Testing index' do
-    customer1 = Customer.create!(
-      name: Faker::Name.name,
-      email: Faker::Internet.email,
-      phone: Faker::PhoneNumber.phone_number,
-      smoker: ['Y', 'N'].sample,
-      avatar: "#{Rails.root}/spec/fixtures/avatar.jpg"
-    )
+    customer1 = create(:customer)
 
-    customer2 = Customer.create!(
-      name: Faker::Name.name,
-      email: Faker::Internet.email,
-      phone: Faker::PhoneNumber.phone_number,
-      smoker: ['Y', 'N'].sample,
-      avatar: "#{Rails.root}/spec/fixtures/avatar.jpg"
-    )
+    customer2 = create(:customer)
 
     visit(customers_path)
     expect(page).to have_content(customer1.name).and have_content(customer2.name)
   end
 
   scenario 'Update customer' do
-    customer = Customer.create!(
-      name: Faker::Name.name,
-      email: Faker::Internet.email,
-      phone: Faker::PhoneNumber.phone_number,
-      smoker: ['Y', 'N'].sample,
-      avatar: "#{Rails.root}/spec/fixtures/avatar.jpg"
-    )
+    customer = create(:customer)
 
     new_name = Faker::Name.name
     visit(edit_customer_path(customer.id))
@@ -92,13 +68,7 @@ RSpec.feature "Customers", type: :feature do
   end
 
   scenario 'Click show link' do
-    customer = Customer.create!(
-      name: Faker::Name.name,
-      email: Faker::Internet.email,
-      phone: Faker::PhoneNumber.phone_number,
-      smoker: ['Y', 'N'].sample,
-      avatar: "#{Rails.root}/spec/fixtures/avatar.jpg"
-    )
+    customer = create(:customer)
 
     visit(customers_path)
     find(:xpath, '/html/body/table/tbody/tr[1]/td[2]/a').click
@@ -106,13 +76,7 @@ RSpec.feature "Customers", type: :feature do
   end
 
   scenario 'Click edit link' do
-    customer = Customer.create!(
-      name: Faker::Name.name,
-      email: Faker::Internet.email,
-      phone: Faker::PhoneNumber.phone_number,
-      smoker: ['Y', 'N'].sample,
-      avatar: "#{Rails.root}/spec/fixtures/avatar.jpg"
-    )
+    customer = create(:customer)
 
     visit(customers_path)
     find(:xpath, '/html/body/table/tbody/tr[1]/td[3]/a').click
@@ -120,13 +84,7 @@ RSpec.feature "Customers", type: :feature do
   end
 
   scenario 'Click delete link', js: true do
-    customer = Customer.create!(
-      name: Faker::Name.name,
-      email: Faker::Internet.email,
-      phone: Faker::PhoneNumber.phone_number,
-      smoker: ['Y', 'N'].sample,
-      avatar: "#{Rails.root}/spec/fixtures/avatar.jpg"
-    )
+    customer = create(:customer)
 
     visit(customers_path)
     find(:xpath, '/html/body/table/tbody/tr[1]/td[4]/a').click
